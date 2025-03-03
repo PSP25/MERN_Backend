@@ -3,7 +3,7 @@
 
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-
+import {app} from "./app.js";
 
                                    //approach 2 to connect the database(through separate file)
 // as eaarly as possible the dotenv should be configured so that the environment variables can be used
