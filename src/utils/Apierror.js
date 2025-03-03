@@ -7,9 +7,10 @@ class ApiError extends Error{
           this.success=false;//we keep it false as success code is not sent here as this is api error handling not 
           //api response handling
           this.errors=errors;
-          if(statck){//helps banckend engg understand where the error occured in a structured way
+          stack="";
+          if(stack){//helps banckend engg understand where the error occured in a structured way
                //we remove it during production
-               this.stack=statck;
+               this.stack=stack;
           }else{
                Error.captureStackTrace(this,this.constructor);
                //here we pass the reference and instance of the context of the error
