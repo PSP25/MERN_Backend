@@ -18,13 +18,13 @@ cloudinary.config({
 const uploadOnCloudinary=async(local_file_path)=>{
      try {
          if(!local_file_path){
-           return null;
+           return null;//you can send an error message
          }
          //cloudinary.uploader.upload(path,{uploadoptions},other parameters) 
          // syntax to upload files to cloudinary
          const response=await cloudinary.uploader.upload(local_file_path,{
-          resource_type:"auto"   //we get many opyioins here, for noe we will use resource_type
-         });
+          resource_type:"auto"   //we get many options here, for now we will use resource_type
+         });//as they are optioins so wwe use curly braces
          //we can give many things like folder name, tags, public_id etc
          //we can also give callback function
 
@@ -39,6 +39,8 @@ const uploadOnCloudinary=async(local_file_path)=>{
           //unlink is a function of fs module
           fs.unlinkSync(local_file_path);//unlinkSync is used to remove the file
           //we use Sync as we want to delete the file before the function ends
-          return null;
+          return null;//you can send an error message
      }
 }
+export {uploadOnCloudinary};//exporting the function so that it can be used in other files
+//this function is used in multer.middleware.js file

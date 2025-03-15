@@ -7,9 +7,11 @@
 
 //async handling can be done using try catch block or using promises 
                //promises method
-const asyncHandler=(fn)=>(req,res,next)=>{
-     Promise.resolve(fn(req,res,next)).catch((err)=>next(err))
+const asyncHandler=(requestHandler)=>{
+     return (req,res,next)=>{
+     Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err))
       //if promise resolves then it will go to next function else it will catch the error and pass it to next function
+     }
 }
 export {asyncHandler};
                //using try-catch higher
