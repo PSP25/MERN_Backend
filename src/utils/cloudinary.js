@@ -29,8 +29,12 @@ const uploadOnCloudinary=async(local_file_path)=>{
          //we can also give callback function
 
          //uploaded, so we give a message and print the url to the files
-         console.log("File uploaded to cloudinary",response.url);
+         //console.log("File uploaded to cloudinary",response.url);
          //return the response for user to get data when required
+
+         //we can unlink the files from local storageif esuccesfully uploaded to cloudinary
+         //this should be done after reunning the function in post man and checking
+         fs.unlinkSync(local_file_path);
          return response;
 
      } catch (error) {

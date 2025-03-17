@@ -19,7 +19,7 @@ import {app} from "./app.js";
 //if we do not use dotenv here, we need to configure the dotenv file in the connectDB file
 //and we need to configure the dotenv file in every file that uses the environment variables
 //so to avoid this we use dotenv here so that the environment variables can be used by any file in the project
-dotenv.config({path:'./env'});
+dotenv.config({path:'./env'});//at times we might have to do ./.env
 connectDB()
 .then(()=>{
      app.on("error",(error)=>{

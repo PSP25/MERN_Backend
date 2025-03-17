@@ -1,5 +1,5 @@
 class ApiError extends Error{
-     constructor(statusCode,message="some error occured",errors=[],statck=""){
+     constructor(statusCode,message="some error occured",errors=[],stack=""){
           super(message);
           this.statusCode=statusCode;
           this.data=null;//read about what happens in this.data read in node js
